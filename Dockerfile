@@ -22,7 +22,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         python-dev \
         python-numpy \
         python-pip \
-	ros-hydro-opencv3 \
         python-setuptools \
         python-scipy && \
     rm -rf /var/lib/apt/lists/*
