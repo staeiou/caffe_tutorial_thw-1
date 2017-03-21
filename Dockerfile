@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         python-dev \
         python-numpy \
         python-pip \
+	ros-hydro-opencv3 \
         python-setuptools \
         python-scipy && \
     rm -rf /var/lib/apt/lists/*
@@ -42,7 +43,7 @@ RUN git clone -b ${CLONE_TAG} --depth 1 https://github.com/BVLC/caffe.git . && \
     pip install --upgrade pip && \
     cd python && for req in $(cat requirements.txt) pydot; do pip install $req; done && cd .. && \
     mkdir build && cd build && \
-    cmake -DCPU_ONLY=1 .. && \
+    cmake -DCPU_ONLY=1 -DBUILD_TIFF=ON .. && \
     make -j"$(nproc)"
 
 ENV PYCAFFE_ROOT $CAFFE_ROOT/python
