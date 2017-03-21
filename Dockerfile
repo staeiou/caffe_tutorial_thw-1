@@ -28,9 +28,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # per https://groups.google.com/forum/#!msg/caffe-users/wKYe45FKSqE/HcFMlGS-M8gJ
 # via https://github.com/BVLC/caffe/issues/4436
-RUN sudo ln -s /usr/lib/x86_64-linux-gnu/libhdf5.so.7 /usr/lib/x86_64-linux-gnu/libhdf5.so.9
-RUN sudo ln -s /usr/lib/x86_64-linux-gnu/libhdf5_hl.so.7 /usr/lib/x86_64-linux-gnu/libhdf5_hl.so.9
-RUN sudo ldconfig
+RUN ln -s /usr/lib/x86_64-linux-gnu/libhdf5.so.7 /usr/lib/x86_64-linux-gnu/libhdf5.so.9
+RUN ln -s /usr/lib/x86_64-linux-gnu/libhdf5_hl.so.7 /usr/lib/x86_64-linux-gnu/libhdf5_hl.so.9
+RUN ldconfig
 
 ENV CAFFE_ROOT=/opt/caffe
 WORKDIR $CAFFE_ROOT
